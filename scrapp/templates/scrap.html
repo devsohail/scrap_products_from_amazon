@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon product scrapper</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        .fields{
+            min-height: 100px;
+            margin: 25px auto;
+            padding: 50px;
+            width: 500px;
+            display: block;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container p5 m5" style="min-height: 100px;">
+      <form action="{% url 'scrape_product' %}" method="post">
+        <div class="card fields">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="text" required class="form-control" name="product_name" placeholder="Enter product name" aria-label="Enter product name" aria-describedby="button-addon2">
+            <button class="btn btn-success" type="submit" id="button-addon2">Let's Go</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+  </body>
+</html>
